@@ -14,12 +14,12 @@ body {
     width: fit-content;
 }
 
-.casesJeu{
+.btnJeu{
     width: 100px;
     border-radius: 5%;
     min-height: 100px;
     text-align: center;
-    border-color: black;
-    border-width: 10px;
+    border-width: 1px;
+    background-color: gray;
 }
 

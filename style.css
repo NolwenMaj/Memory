@@ -1,0 +1,25 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top:10%;
+}
+
+#grilleJeu{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1%;
+    grid-auto-rows: minmax(4,1fr);
+    width: fit-content;
+}
+
+.casesJeu{
+    width: 100px;
+    border-radius: 5%;
+    min-height: 100px;
+    text-align: center;
+    border-color: black;
+    border-width: 10px;
+}
+

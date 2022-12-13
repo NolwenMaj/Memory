@@ -11,27 +11,33 @@
     <div id="title"> 
         <h1> Memory </h1>
     </div>
-    <div id="ScoreAndPlayerOn">
-        <p id="score"></p>
-        <p id="playerOn"></p>
-        </div>
+
+    <div id="Score">
+        <p id="scoreP1">score P1 :</p>
+        <p id="scoreP2">score P2 :</p>
+    </div>
+    <!-- <div id="board"></div> -->
     <div id="grilleJeu">
-        <button class="casesJeu" id="C1L1" onclick="style">C1L1</button>
-        <div class="casesJeu" id="C2L1">C2L1 <button onclick="turnblue()">Retourne la carte</button></div>
-        <div class="casesJeu" id="C3L1">C3L1</div>
-        <div class="casesJeu" id="C4L1">C4L1</div>
-        <div class="casesJeu" id="C1L2">C1L2</div>
-        <div class="casesJeu" id="C2L2">C2L2</div>
-        <div class="casesJeu" id="C3L2">C3L2</div>
-        <div class="casesJeu" id="C4L2">C4L2</div>
-        <div class="casesJeu" id="C1L3">C1L3</div>
-        <div class="casesJeu" id="C2L3">C2L3</div>
-        <div class="casesJeu" id="C3L3">C3L3</div>
-        <div class="casesJeu" id="C4L3">C4L3</div>
-        <div class="casesJeu" id="C1L4">C1L4</div>
-        <div class="casesJeu" id="C2L4">C2L4</div>
-        <div class="casesJeu" id="C3L4">C3L4</div>
-        <div class="casesJeu" id="C4L4">C4L4</div>
+        <button class="btnJeu" id="C1L1" onclick="alternancePlayer('C1L1')">C1L1 </button>
+        <button class="btnJeu" id="C2L1" onclick="alternancePlayer('C2L1')">C2L1 </button>
+        <button class="btnJeu" id="C3L1" onclick="alternancePlayer('C3L1')">C3L1 </button>
+        <button class="btnJeu" id="C4L1" onclick="alternancePlayer('C4L1')">C4L1 </button>
+        <button class="btnJeu" id="C1L2" onclick="alternancePlayer('C1L2')">C1L2 </button>
+        <button class="btnJeu" id="C2L2" onclick="alternancePlayer('C2L2')">C2L2 </button>
+        <button class="btnJeu" id="C3L2" onclick="alternancePlayer('C3L2')">C3L2 </button>
+        <button class="btnJeu" id="C4L2" onclick="alternancePlayer('C4L2')">C4L2 </button>
+        <button class="btnJeu" id="C1L3" onclick="alternancePlayer('C1L3')">C1L3 </button>
+        <button class="btnJeu" id="C2L3" onclick="alternancePlayer('C2L3')">C2L3 </button>
+        <button class="btnJeu" id="C3L3" onclick="alternancePlayer('C3L3')">C3L3 </button>
+        <button class="btnJeu" id="C4L3" onclick="alternancePlayer('C4L3')">C4L3 </button>
+        <button class="btnJeu" id="C1L4" onclick="alternancePlayer('C1L4')">C1L4 </button>
+        <button class="btnJeu" id="C2L4" onclick="alternancePlayer('C2L4')">C2L4 </button>
+        <button class="btnJeu" id="C3L4" onclick="alternancePlayer('C3L4')">C3L4 </button>
+        <button class="btnJeu" id="C4L4" onclick="alternancePlayer('C4L4')">C4L4 </button>
+    </div>
+    <div>
+    <p id="playerOn"> Player : </p>
+    <h2 id="gagnante"></h2>
     </div>
 <script src="script.js"></script> 
 </body>

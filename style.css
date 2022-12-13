@@ -3,8 +3,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-top:10%;
-} 
+    padding-top:2%;
+}
+
 
 #grilleJeu{
     display: grid;
@@ -52,3 +53,18 @@ body {
 
 }
 
+#pseudos{
+background-color: blue;    
+display : flex;
+flex-direction: row ;
+}
+
+#inputPlayers {
+    display: flex;
+    flex-direction: row;
+}
+
+#inputNbrJoureur {
+    display : flex ;
+    flex-direction : column ;
+}

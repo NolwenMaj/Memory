@@ -46,6 +46,7 @@ coordB.style.backgroundColor = "grey"
 /* function reboot () */
 
 
+
 function alternancePlayer(coordonnees){
    moves += 1
    console.log("moves :", moves)
@@ -104,4 +105,5 @@ function displayCard(coord){
   }
 return caseInHtml
 }
+
 

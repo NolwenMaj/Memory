@@ -3,7 +3,7 @@ let player = 1
 let premiereCarte ;
 let scoreP1 =0
 let scoreP2 =0
-document.getElementById("playerOn").innerHTML = "Player : "+ player  ;
+document.getElementById("playerOn").innerHTML = "Joueur "+ player + " à toi de jouer" ;
 
 function didSomeoneWin(scoreA,scoreB){
    if (scoreA+scoreB==8) {
@@ -24,12 +24,12 @@ function resolution(a,b) {
    if (a.style.backgroundColor == b.style.backgroundColor){
       if (player ==1) {
          scoreP1 +=1
-         document.getElementById("scoreP1").innerHTML = "score P1 :" + scoreP1 ;
+         document.getElementById("scoreP1").innerHTML = "score joueur.euse 1 : " + scoreP1 ;
          didSomeoneWin(scoreP1,scoreP2)
          return scoreP1
       }else if (player == 2){
          scoreP2 +=1
-         document.getElementById("scoreP2").innerHTML = "score P2 :" + scoreP2;
+         document.getElementById("scoreP2").innerHTML = "score joueur.euse 2 : " + scoreP2;
          didSomeoneWin(scoreP1,scoreP2)
          return scoreP2
       }
@@ -56,10 +56,10 @@ function alternancePlayer(coordonnees){
     resolution(deuxiemeCarte,premiereCarte);
       if (player ==1){
          player = 2
-         document.getElementById("playerOn").innerHTML = "Player : "+ player  ;
+         document.getElementById("playerOn").innerHTML = "Joueur "+ player + " à toi de jouer"  ;
       }else {
          player = 1
-         document.getElementById("playerOn").innerHTML = "Player : "+ player  ;
+         document.getElementById("playerOn").innerHTML = "Joueur "+ player + " à toi de jouer"  ;
       } 
    }else {
       premiereCarte = displayCard(coordonnees)

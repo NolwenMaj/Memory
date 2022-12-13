@@ -3,11 +3,13 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     font-family: 'Lobster Two';
     font-size: 2em ;
     text-align: center;
     display: flex;
-} 
+
+}
 
 .miseEnPage{
     display: -webkit-box;
@@ -108,3 +110,18 @@ body {
     top: 6px;
 }
 
+#pseudos{
+background-color: blue;    
+display : flex;
+flex-direction: row ;
+}
+
+#inputPlayers {
+    display: flex;
+    flex-direction: row;
+}
+
+#inputNbrJoureur {
+    display : flex ;
+    flex-direction : column ;
+}

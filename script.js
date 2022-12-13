@@ -1,14 +1,3 @@
-<<<<<<< Updated upstream
-function turnBlue(){
-   let caseBleu = document.getElementById("C1L1")
-   caseBleu.style.backgroundcolor = "#32adc"
-}
-
-
-function isItAPair (coordonnee1,coordonnee2) {
-
-}
-=======
 let premiereCarte;
 let player;
 let scoreP1 = 0;
@@ -186,4 +175,4 @@ function displayCard(coord) {
   colored.style.backgroundColor = colors[coord];
   return colored;
 }
->>>>>>> Stashed changes
+

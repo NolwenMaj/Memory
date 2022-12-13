@@ -6,35 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeux memory</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="title"> 
         <h1> Memory </h1>
     </div>
-<<<<<<< Updated upstream
-    <div id="ScoreAndPlayerOn">
-        <p id="score"></p>
-        <p id="playerOn"></p>
-        </div>
-    <div id="grilleJeu">
-        <button class="casesJeu" id="C1L1" onclick="style">C1L1</button>
-        <div class="casesJeu" id="C2L1">C2L1 <button onclick="turnblue()">Retourne la carte</button></div>
-        <div class="casesJeu" id="C3L1">C3L1</div>
-        <div class="casesJeu" id="C4L1">C4L1</div>
-        <div class="casesJeu" id="C1L2">C1L2</div>
-        <div class="casesJeu" id="C2L2">C2L2</div>
-        <div class="casesJeu" id="C3L2">C3L2</div>
-        <div class="casesJeu" id="C4L2">C4L2</div>
-        <div class="casesJeu" id="C1L3">C1L3</div>
-        <div class="casesJeu" id="C2L3">C2L3</div>
-        <div class="casesJeu" id="C3L3">C3L3</div>
-        <div class="casesJeu" id="C4L3">C4L3</div>
-        <div class="casesJeu" id="C1L4">C1L4</div>
-        <div class="casesJeu" id="C2L4">C2L4</div>
-        <div class="casesJeu" id="C3L4">C3L4</div>
-        <div class="casesJeu" id="C4L4">C4L4</div>
-=======
-    <div id="inputPlayers">
+ <div id="inputPlayers">
         <div id="inputNbrJoureur">
             <legend >Nombre de joueur.euse : </legend>
             <button onclick="myFunction(2)">2</button>
@@ -48,9 +26,8 @@
         <p id="scoreP1">score P1 :</p>
         <p id="scoreP2">score P2 :</p>
     </div>
-    <!-- <div id="board"></div> -->
     <div id="grilleJeu">
-        <button class="btnJeu" id="0" onclick="drawCards('0')">0</button>
+       <button class="btnJeu" id="0" onclick="drawCards('0')">0</button>
         <button class="btnJeu" id="1" onclick="drawCards('1')">1 </button>
         <button class="btnJeu" id="2" onclick="drawCards('2')">2 </button>
         <button class="btnJeu" id="3" onclick="drawCards('3')">3 </button>
@@ -65,12 +42,11 @@
         <button class="btnJeu" id="12" onclick="drawCards('12')">12 </button>
         <button class="btnJeu" id="13" onclick="drawCards('13')">13</button>
         <button class="btnJeu" id="14" onclick="drawCards('14')">14</button>
-        <button class="btnJeu" id="15" onclick="drawCards('15')">15 </button>  
+        <button class="btnJeu" id="15" onclick="drawCards('15')">15 </button> 
     </div>
     <div>
-    <p id="playerOn"></p>
+    <p id="playerOn"> Player : </p>
     <h2 id="gagnante"></h2>
->>>>>>> Stashed changes
     </div>
 <script src="script.js"></script> 
 </body>

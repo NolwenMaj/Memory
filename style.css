@@ -4,7 +4,7 @@ body {
     align-items: center;
     justify-content: center;
     padding-top:10%;
-}
+} 
 
 #grilleJeu{
     display: grid;
@@ -15,11 +15,30 @@ body {
 }
 
 .casesJeu{
-    width: 100px;
+    margin: 20px auto 0;
+    font-size: 30px;
+    font-weight: lighter;
+    color: #333;
+    padding: 25px 50px;
+    background: #a6dafd;
+    outline: none;
+    border: none;
+    cursor: pointer;
     border-radius: 5%;
-    min-height: 100px;
-    text-align: center;
-    border-color: black;
-    border-width: 10px;
+    box-shadow: 0 6px #6c9aea;
+    font-family: 'Lobster Two', cursive;
+    
+    
+    
+}
+
+.casesJeu:hover{
+    box-shadow: 0 4px #6c9aea;
+    top: 2px;
+}
+
+.casesJeu:active{
+    box-shadow: 0 0 #6c9aea;
+    top: 6px;
 }
 

@@ -1,3 +1,4 @@
+
 let premiereCarte;
 let player;
 let scoreP1 = 0;
@@ -26,6 +27,7 @@ let colors = [
   "red",
 ];
 
+
 function shuffle(array) {
   // mélange le tableau contenant chaque couleur en double ( à changer en src image )
   for (let i = array.length - 1; i > 0; i--) {
@@ -33,6 +35,7 @@ function shuffle(array) {
     [array[i], array[j]] = [array[j], array[i]];
   }
 }
+
 
 function randomnPlayerStart() {
   // choix aéatoire du premier joueureuse
@@ -43,6 +46,7 @@ function randomnPlayerStart() {
     player = 2;
     return player;
   }
+
 }
 
 function inputNbr() {
@@ -85,6 +89,7 @@ function myFunction(n) {
 function gameStart() {
   // initialisation des scores, joueureuses et grille
 
+
   let btns = document.querySelectorAll(".btnJeu");
   btns.forEach((btn) => {
     btn.style.backgroundColor = "grey";
@@ -93,9 +98,10 @@ function gameStart() {
   scoreP1 = 0;
   scoreP2 = 0;
   randomnPlayerStart();
-  document.getElementById("playerOn").innerHTML = "Player : " + player;
+  document.getElementById("playerOn").innerHTML = "Joueur "+ player + " à toi de jouer" ;
   let moves = 0;
   return moves;
+
 }
 
 function didSomeoneWin(scoreA, scoreB) {
@@ -119,12 +125,12 @@ function resolution(a, b) {
   if (a.style.backgroundColor == b.style.backgroundColor) {
     if (player == 1) {
       scoreP1 += 1;
-      document.getElementById("scoreP1").innerHTML = "score P1 :" + scoreP1;
+      document.getElementById("scoreP1").innerHTML = "score joueur.euse 1 : " + scoreP1 ;
       didSomeoneWin(scoreP1, scoreP2);
       return scoreP1;
     } else if (player == 2) {
       scoreP2 += 1;
-      document.getElementById("scoreP2").innerHTML = "score P2 :" + scoreP2;
+      document.getElementById("scoreP2").innerHTML = "score joueur.euse 2 : " + scoreP2 ;
       didSomeoneWin(scoreP1, scoreP2);
       return scoreP2;
     }

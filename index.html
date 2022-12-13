@@ -7,11 +7,12 @@
     <title>Jeux memory</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap" rel="stylesheet">
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet"></head>
 <body>
     <div id="title"> 
         <h1> Memory </h1>
     </div>
+
  <div id="inputPlayers">
         <div id="inputNbrJoureur">
             <legend >Nombre de joueur.euse : </legend>
@@ -22,9 +23,12 @@
         <div id="pseudos"></div>
     </div>
     <button id=start, onclick="gameStart()"> Let's Play </button>
-    <div id="Score">
-        <p id="scoreP1">score P1 :</p>
-        <p id="scoreP2">score P2 :</p>
+  
+  <div class="miseEnPage">
+    
+     <div class="p1">   <p id="scoreP1">score joueur.euse 1 :</p></div>
+       
+       
     </div>
     <div id="grilleJeu">
        <button class="btnJeu" id="0" onclick="drawCards('0')">0</button>
@@ -43,9 +47,12 @@
         <button class="btnJeu" id="13" onclick="drawCards('13')">13</button>
         <button class="btnJeu" id="14" onclick="drawCards('14')">14</button>
         <button class="btnJeu" id="15" onclick="drawCards('15')">15 </button> 
+
     </div>
-    <div>
-    <p id="playerOn"> Player : </p>
+   <div class="p2"> <p id="scoreP2">score joueur.euse 2 :</p></div>
+</div>
+    <div class="joueur">
+    <p id="playerOn"> joueur </p>
     <h2 id="gagnante"></h2>
     </div>
 <script src="script.js"></script> 

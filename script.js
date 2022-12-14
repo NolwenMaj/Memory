@@ -1,13 +1,9 @@
 
 let premiereCarte;
+let arrayPseudos=[]
+let arrGame = []
 let player;
-let scoreP1 = 0;
-let scoreP2 = 0;
 let moves = 0;
-let player1;
-let player2;
-let player3;
-let player4;
 let colors = [
   "orange",
   "orange",
@@ -27,127 +23,78 @@ let colors = [
   "red",
 ];
 
-
-function shuffle(array) {
-  // mélange le tableau contenant chaque couleur en double ( à changer en src image )
+function shuffle(array) {// mélange le tableau contenant chaque couleur en double ( à changer en src image )
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
 }
 
-
-function randomnPlayerStart() {
-  // choix aéatoire du premier joueureuse
-  if (Math.random() >= 0.5) {
-    player = 1;
-    return player;
-  } else {
-    player = 2;
-    return player;
-  }
-
+function randomnPlayerStart(nbrPl) {
+  player = Math.floor(Math.random() * nbrPl)
+  document.getElementById("playerOn").innerHTML = arrGame[player].pseudo + " à toi de jouer" ;
+  return player
 }
 
-function inputNbr() {
-  var inp = document.getElementsByName("nbrJoueureuses");
-  for (i = 0; i <= inp.length; i++) {
-    if (inp[i].checked) {
-      let inputNbrJoueureuse = inp[i];
-         switch (inputNbrJoueureuse) {
-            case 2:
-               addElement(2);
-               console.log("inputNbr Joueureuses", inputNbrJoueureuse);
-               break;
-            case 3:
-               break;
-            case 4:
-            /*    player1 = document.createElement("inputPseudoPlayer1");
-               player1.setAttribute("type", "text");
-               player2 = document.createElement("inputPseudoPlayer2");
-               player2.setAttribute("type", "text");
-               player3 = document.createElement("inputPseudoPlayer3");
-               player3.setAttribute("type", "text");
-               player4 = document.createElement("inputPseudoPlayer3");
-               player4.setAttribute("type", "text"); */
-         }
-      } 
-   }
-}
-
-
-function myFunction(n) {
+function displayPseudoInput(n) {
    const currentDiv = document.getElementById("pseudos")
+   currentDiv.replaceChildren();
    for (k = 1; k <= n; k++){
       let pseudo = document.createElement("INPUT");
       pseudo.setAttribute("type", "text");
-      pseudo.setAttribute("value", "Pseudo");
+      pseudo.setAttribute("class", "inputPseudo")
+      pseudo.setAttribute("placeholder", "Pseudo");
       currentDiv.appendChild(pseudo);
    }
 } 
 
-function gameStart() {
-  // initialisation des scores, joueureuses et grille
+function getPseudos() {
+  let playerPseudo = document.querySelectorAll(".inputPseudo")
+  arrGame.length = 0
+  for (w = 0; w <= (playerPseudo.length-1) ; w++){
+    arrGame.push({"pseudo" : playerPseudo[w].value ,'score': 0})
+  }
+  console.log(arrGame)
+  return arrGame
+}
 
-
+function gameStart() {// initialisation des scores, joueureuses et grille
   let btns = document.querySelectorAll(".btnJeu");
   btns.forEach((btn) => {
     btn.style.backgroundColor = "#a6dafd";
   });
+  getPseudos()
   shuffle(colors);
-  scoreP1 = 0;
-  scoreP2 = 0;
-  randomnPlayerStart();
-  document.getElementById("playerOn").innerHTML = "Joueur "+ player + " à toi de jouer" ;
+  randomnPlayerStart(arrGame.length);
   let moves = 0;
   return moves;
-
 }
 
-function didSomeoneWin(scoreA, scoreB) {
-  // vérification du score pour affichage gagnante
-  if (scoreA + scoreB == 8) {
-    
-    if (scoreA == scoreB) {
-      document.getElementById("gagnante").innerHTML = "Il y a égalité !";
-      console.log("Il y a égalité !");
-    } else if (scoreA > scoreB) {
-      document.getElementById("gagnante").innerHTML = "Player 1 a gagné !";
-      confetti({spread: 180, particleCount: 200});
-      console.log("Player 1 a gagné !");
-    } else if (scoreA < scoreB) {
-      document.getElementById("gagnante").innerHTML = "Player 2 a gagné !";
-      confetti({spread: 180, particleCount: 200});
-      console.log("Player 2 a gagné !");
-    }
+function didSomeoneWin(tab) {// vérification du score pour affichage gagnante
+  console.log(tab)
+  let total = 0
+  for (let i = 0; i<tab.length; i++) {
+    total += parseInt(tab[i].score)
   }
-}
-
-function resolution(a, b) {
-  // si deux cartes sélectionnées, résoud si c'est une paire ou pas
-  if (a.style.backgroundColor == b.style.backgroundColor) {
-    if (player == 1) {
-      scoreP1 += 1;
-      document.getElementById("scoreP1").innerHTML = "score joueur.euse 1 : " + scoreP1 ;
-      didSomeoneWin(scoreP1, scoreP2);
-      return scoreP1;
-    } else if (player == 2) {
-      scoreP2 += 1;
-      document.getElementById("scoreP2").innerHTML = "score joueur.euse 2 : " + scoreP2 ;
-      didSomeoneWin(scoreP1, scoreP2);
-      return scoreP2;
+  console.log(total)
+  if (total == 8) {
+    const ids = tab.map(object => {
+      return object.score;
+    });
+    const max = Math.max(...ids);
+    for (let i = 0; i<tab.length; i++) {
+      if (tab[i].score == max){
+        document.getElementById("gagnante").innerHTML = tab[i].pseudo + " a gagné !";
+        console.log(tab[i].pseudo + " a gagné !")
+      }
     }
-  } else {
-    setTimeout(() => {
-      flipCardBack(a, b);
-    }, 400);
   }
 }
 
 function flipCardBack(coordA, coordB) {
   // si ce n'est pas une paire, reinitialise les cartes en gris
-  coordA.style.backgroundColor = "#a6dafd";
-  coordB.style.backgroundColor = "#a6dafd";
+  coordA.style.backgroundColor = "grey";
+  coordB.style.backgroundColor = "grey";
   if (player == 1) {
     player = 2;
     document.getElementById("playerOn").innerHTML = "Player : " + player;
@@ -159,8 +106,8 @@ function flipCardBack(coordA, coordB) {
 
 function drawCards(coordonnees) {
   // compte des mouvements par joueureuse
+function drawCards(coordonnees) {// compte des mouvements par joueureuse
   moves += 1;
-  console.log("moves :", moves);
   if (moves == 2) {
     let deuxiemeCarte = displayCard(coordonnees);
     if (premiereCarte == deuxiemeCarte) {
@@ -169,19 +116,32 @@ function drawCards(coordonnees) {
       );
       moves = 1;
     } else {
-      moves = 0;
-      resolution(deuxiemeCarte, premiereCarte);
+        moves = 0;
+        if (premiereCarte.style.backgroundColor == deuxiemeCarte.style.backgroundColor) {
+          arrGame[player].score += 1
+          document.getElementById("scoreP1").innerHTML = arrGame[player].pseudo + " : " +  arrGame[player].score  ;
+          didSomeoneWin(arrGame);
+        } else {
+          setTimeout(() => {
+            premiereCarte.style.backgroundColor = "#6c9aeay";
+            deuxiemeCarte.style.backgroundColor = "#6c9aeay";
+            player +=1
+            if (player > arrGame.length -1) {
+              player = 0
+            }
+            document.getElementById("playerOn").innerHTML = arrGame[player].pseudo + " à toi de jouer"
+            return player
+          }, 400);
+        }
     }
   } else {
     premiereCarte = displayCard(coordonnees);
     return premiereCarte;
   }
-}
+}}
 
-function displayCard(coord) {
-  // affichage de la couleur de la case et cliquée
+function displayCard(coord) { // affichage de la couleur de la case et cliquée
   let colored = document.getElementById(coord);
   colored.style.backgroundColor = colors[coord];
   return colored;
 }
-

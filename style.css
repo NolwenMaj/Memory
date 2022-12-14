@@ -49,7 +49,7 @@ body {
  
 }
 
-#scoreP1{
+.pseudoScore{
     background-color: #a6dafd;
     border-radius: 30px;
     max-width: 100%;
@@ -59,7 +59,7 @@ body {
       
 }
 
-#scoreP2{
+.score{
     background-color: #a6dafd;
     border-radius: 30px;
     max-width: 100%;

@@ -45,8 +45,21 @@ body {
     max-width: 100%;
     height: auto;
     border: none;
-    
- 
+     
+}
+
+#gagnante{
+    z-index: 2;
+    font-size: 5em;
+    position: absolute;
+    top: 40%;
+    left: 23%;
+    text-align: center;
+    color: #a6dafd;
+    text-shadow: 3px 3px #000000ab;
+    font-family: 'Dosis', sans-serif;
+    background-color: rgb(255 255 255 / 35%);
+    border-radius: 30px;
 }
 
 #scoreP1{

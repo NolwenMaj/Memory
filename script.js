@@ -92,7 +92,7 @@ function gameStart() {
 
   let btns = document.querySelectorAll(".btnJeu");
   btns.forEach((btn) => {
-    btn.style.backgroundColor = "grey";
+    btn.style.backgroundColor = "#a6dafd";
   });
   shuffle(colors);
   scoreP1 = 0;
@@ -107,14 +107,17 @@ function gameStart() {
 function didSomeoneWin(scoreA, scoreB) {
   // vérification du score pour affichage gagnante
   if (scoreA + scoreB == 8) {
+    
     if (scoreA == scoreB) {
       document.getElementById("gagnante").innerHTML = "Il y a égalité !";
       console.log("Il y a égalité !");
     } else if (scoreA > scoreB) {
       document.getElementById("gagnante").innerHTML = "Player 1 a gagné !";
+      confetti({spread: 180, particleCount: 200});
       console.log("Player 1 a gagné !");
-    } else if (scoreA > scoreB) {
+    } else if (scoreA < scoreB) {
       document.getElementById("gagnante").innerHTML = "Player 2 a gagné !";
+      confetti({spread: 180, particleCount: 200});
       console.log("Player 2 a gagné !");
     }
   }
@@ -143,8 +146,8 @@ function resolution(a, b) {
 
 function flipCardBack(coordA, coordB) {
   // si ce n'est pas une paire, reinitialise les cartes en gris
-  coordA.style.backgroundColor = "grey";
-  coordB.style.backgroundColor = "grey";
+  coordA.style.backgroundColor = "#a6dafd";
+  coordB.style.backgroundColor = "#a6dafd";
   if (player == 1) {
     player = 2;
     document.getElementById("playerOn").innerHTML = "Player : " + player;

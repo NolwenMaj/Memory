@@ -62,7 +62,7 @@ body {
     border-radius: 30px;
 }
 
-.pseudoScore{
+#scoreP1{
     background-color: #a6dafd;
     border-radius: 30px;
     max-width: 100%;
@@ -72,7 +72,7 @@ body {
       
 }
 
-.score{
+#scoreP2{
     background-color: #a6dafd;
     border-radius: 30px;
     max-width: 100%;

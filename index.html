@@ -16,9 +16,9 @@
  <div id="inputPlayers">
         <div id="inputNbrJoureur">
             <legend >Nombre de joueur.euse : </legend>
-            <button onclick="displayPseudoInput(2)">2</button>
-            <button onclick="displayPseudoInput(3)">3</button>
-            <button onclick="displayPseudoInput(4)">4</button>
+            <button onclick="myFunction(2)">2</button>
+            <button onclick="myFunction(3)">3</button>
+            <button onclick="myFunction(4)">4</button>
         </div> 
         <div id="pseudos"></div>
     </div>
@@ -27,9 +27,10 @@
 
   <div class="miseEnPage">
     
-     <div class="divScore" id="divScore1">   
-        <p class="pseudoScore" id="pseudoP1"></p>
-    </div>
+     <div class="p1">   <p id="scoreP1">score joueur.euse 1 :</p></div>
+       
+       
+    
     <div id="grilleJeu">
        <button class="btnJeu" id="0" onclick="drawCards('0')">0</button>
         <button class="btnJeu" id="1" onclick="drawCards('1')">1 </button>
@@ -48,9 +49,9 @@
         <button class="btnJeu" id="14" onclick="drawCards('14')">14</button>
         <button class="btnJeu" id="15" onclick="drawCards('15')">15 </button> 
     </div>
-    <div class="divScore" id =divScore2>   
-        <p class="pseudoScore" id="pseudoP2"></p>
-    </div>
+    <h2 id="gagnante"></h2>
+   <div class="p2"> <p id="scoreP2">score joueur.euse 2 :</p></div>
+</div>
     <div class="joueur">
     <p id="playerOn"> joueur </p>
     

@@ -89,37 +89,12 @@ function didSomeoneWin(tab) {// vérification du score pour affichage gagnante
       }
     }
   }
-} 
-
-function flipCardBack(coordA, coordB, d) {// si ce n'est pas une paire, reinitialise les cartes
-  
-}
-
-function resolution(a, b) {
-  // si deux cartes sélectionnées, résoud si c'est une paire ou pas
-  if (a.style.backgroundColor == b.style.backgroundColor) {
-    if (player == 1) {
-      scoreP1 += 1;
-      document.getElementById("scoreP1").innerHTML = "score joueur.euse 1 : " + scoreP1 ;
-      didSomeoneWin(scoreP1, scoreP2);
-      return scoreP1;
-    } else if (player == 2) {
-      scoreP2 += 1;
-      document.getElementById("scoreP2").innerHTML = "score joueur.euse 2 : " + scoreP2 ;
-      didSomeoneWin(scoreP1, scoreP2);
-      return scoreP2;
-    }
-  } else {
-    setTimeout(() => {
-      flipCardBack(a, b);
-    }, 400);
-  }
 }
 
 function flipCardBack(coordA, coordB) {
   // si ce n'est pas une paire, reinitialise les cartes en gris
-  coordA.style.backgroundColor = "#a6dafd";
-  coordB.style.backgroundColor = "#a6dafd";
+  coordA.style.backgroundColor = "grey";
+  coordB.style.backgroundColor = "grey";
   if (player == 1) {
     player = 2;
     document.getElementById("playerOn").innerHTML = "Player : " + player;
@@ -163,11 +138,10 @@ function drawCards(coordonnees) {// compte des mouvements par joueureuse
     premiereCarte = displayCard(coordonnees);
     return premiereCarte;
   }
-}
+}}
 
 function displayCard(coord) { // affichage de la couleur de la case et cliquée
   let colored = document.getElementById(coord);
   colored.style.backgroundColor = colors[coord];
   return colored;
 }
-

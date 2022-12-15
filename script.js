@@ -27,6 +27,9 @@ let colors = [
   "red",
 ];
 
+let images =["url('Plante 1.jpg')","url('Plante 1.jpg')","url('Plante 2.jpg')","url('Plante 2.jpg')","url('Plante 3.jpg')","url('Plante 3.jpg')","url('Plante 4.jpg')","url('Plante 4.jpg')","url('Plante 5.jpg')","url('Plante 5.jpg')","url('Plante 6.jpg')","url('Plante 6.jpg')","url('Plante 7.jpg')","url('Plante 7.jpg')","url('Plante 8.jpg')","url('Plante 8.jpg')"]
+/* let backgroundImages = ["img/Plante 1.jpg","/img/Plante 1.jpg","/img/Plante 2.jpg","/img/Plante 2.jpg","/img/Plante 3.jpg","/img/Plante 3.jpg","/img/Plante 4.jpg","/img/Plante 4.jpg","/img/Plante 5.jpg","/img/Plante 5.jpg","/img/Plante 6.jpg","/img/Plante 6.jpg","/img/Plante 7.jpg","/img/Plante 7.jpg","/img/Plante 8.jpg","/img/Plante 8.jpg"]
+ */
 function shuffle(array) {// mélange le tableau contenant chaque couleur en double ( à changer en src image )
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -79,7 +82,6 @@ function getPseudos() {
   for (w = 0; w <= (playerPseudo.length-1) ; w++){
     arrGame.push({"pseudo" : playerPseudo[w].value ,'score': 0})
   }
-  console.log(arrGame)
   return arrGame
 }
 
@@ -89,7 +91,7 @@ function gameStart() {// initialisation des scores, joueureuses et grille
     btn.style.backgroundColor = "#a6dafd";
   });
   getPseudos();
-  shuffle(colors);
+  shuffle(images);
   randomnPlayerStart(arrGame.length);
   displayScores(arrGame.length)
   let moves = 0;
@@ -128,8 +130,8 @@ function didSomeoneWin(tab) {// vérification du score pour affichage gagnante
 }
 
 function nextPlayer (first,second){
-  first.style.backgroundColor = "#a6dafd";
-  second.style.backgroundColor = "#a6dafd";
+  first.style.backgroundImage = "";
+  second.style.backgroundImage = "";
   player +=1
   if (player > arrGame.length -1) {
   player = 0
@@ -143,16 +145,16 @@ function drawCards(coordonnees) {// compte des mouvements par joueureuse
   console.log('moves :' , moves)
   if (moves == 2) {
     let deuxiemeCarte = displayCard(coordonnees);
-    console.log('deuxieme carte color : ',deuxiemeCarte.style.backgroundColor)
+    console.log('deuxieme carte color : ',deuxiemeCarte.style.backgroundImage)
     if (premiereCarte == deuxiemeCarte) {
       alert("hum, c'était la même case. Pour faire une paire, choisis en une autre !");
       moves = 1;
     } else {
         moves = 0;
-        if (premiereCarte.style.backgroundColor == deuxiemeCarte.style.backgroundColor) {
+        if (premiereCarte.style.backgroundImage == deuxiemeCarte.style.backgroundImage) {
           arrGame[player].score += 1
           console.log(arrGame[player].pseudo , arrGame[player].score)
-          document.getElementById(arrGame[player].pseudo).innerHTML = arrGame[player].pseudo + " : " +  arrGame[player].score  ;
+          document.getElementById(arrGame[player].pseudo).innerHTML = arrGame[player].pseudo + " : " +  arrGame[player].score + "pt" ;
           didSomeoneWin(arrGame);
         } else {
           setTimeout(() => {nextPlayer(premiereCarte,deuxiemeCarte)}, 400);
@@ -160,13 +162,26 @@ function drawCards(coordonnees) {// compte des mouvements par joueureuse
     }
   } else {
     premiereCarte = displayCard(coordonnees);
-    console.log('premiere carte color : ',premiereCarte.style.backgroundColor)
+    console.log('premiere carte color : ',premiereCarte.style.backgroundImage)
     return premiereCarte;
   }
 }
 
 function displayCard(coord) { // affichage de la couleur de la case et cliquée
-  let colored = document.getElementById(coord);
-  colored.style.backgroundColor = colors[coord];
-  return colored;
+  let imgToShow = document.getElementById(coord);
+  imgToShow.style.backgroundImage = images[coord];
+  imgToShow.style.backgroundSize = "cover"
+  imgToShow.style.backgroundRepeat = "no-repeat"
+  return imgToShow;
 }
+
+
+/* function jeTeste(){
+  let a = document.getElementById("test");
+  a.src = backgroundImages[14];
+  let b =document.getElementById("test2");
+  b.style.backgroundImage = images[0];
+  console.log(images[0])
+  b.style.backgroundSize = "contain"
+}
+jeTeste() */

@@ -108,7 +108,8 @@ function didSomeoneWin(tab) {// vérification du score pour affichage gagnante
     for (let i = 0; i<tab.length; i++) {
       if (tab[i].score == max){
         console.log(tab[i].pseudo + " a gagné !")
-        document.getElementById("playerOn").innerHTML = tab[i].pseudo + " a gagné !";
+        document.getElementById("playerOn").innerHTML = ""
+        document.getElementById("gagnante").innerHTML = tab[i].pseudo + " a gagné !";
         confetti({spread :180,particleCount : 200})
       }
     }

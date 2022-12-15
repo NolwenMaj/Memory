@@ -1,7 +1,8 @@
 
 let premiereCarte;
-let arrayPseudos=[]
-let arrGame = []
+let arrayPseudos=[];
+let arrGame = [];
+let result =[];
 let player;
 let player1;
 let player2;
@@ -88,7 +89,7 @@ function getPseudos() {
 function gameStart() {// initialisation des scores, joueureuses et grille
   let btns = document.querySelectorAll(".btnJeu");
   btns.forEach((btn) => {
-    btn.style.backgroundColor = "#a6dafd";
+    btn.style.backgroundImage = "";
   });
   getPseudos();
   shuffle(images);
@@ -103,7 +104,6 @@ function gameStart() {// initialisation des scores, joueureuses et grille
   refreshButton.setAttribute("class", "btnInput ");
   newInput.appendChild(refreshButton);
   return moves;
-
 }
 
 function didSomeoneWin(tab) {// vérification du score pour affichage gagnante
@@ -112,22 +112,32 @@ function didSomeoneWin(tab) {// vérification du score pour affichage gagnante
   for (let i = 0; i<tab.length; i++) {
     total += parseInt(tab[i].score)
   }
-  console.log(total)
   if (total == 8) {
+    document.getElementById("playerOn").innerHTML = ""
+    confetti({spread :180,particleCount : 200})
     const ids = tab.map(object => {
       return object.score;
     });
     const max = Math.max(...ids);
     for (let i = 0; i<tab.length; i++) {
-      if (tab[i].score == max){
-        console.log(tab[i].pseudo + " a gagné !")
-        document.getElementById("playerOn").innerHTML = ""
-        document.getElementById("gagnante").innerHTML = tab[i].pseudo + " a gagné !";
-        confetti({spread :180,particleCount : 200})
+      if(tab[i].score == max){
+        result.push(tab[i].pseudo)
       }
+    showWinner(result.length)
     }
   }
 }
+
+function showWinner (nbrWinner) {
+  if ((nbrWinner)==1){
+    document.getElementById("gagnante").innerHTML = result[0] + " a gagné !";}
+  else if ((result.length)>1){
+    document.getElementById("gagnante").innerHTML = "Egalité ! " 
+    for (let j = 0; j<result.length; j++){
+      document.getElementById("gagnante").innerHTML += result[j] + "    "}
+  }
+}
+
 
 function nextPlayer (first,second){
   first.style.backgroundImage = "";
@@ -175,13 +185,3 @@ function displayCard(coord) { // affichage de la couleur de la case et cliquée
   return imgToShow;
 }
 
-
-/* function jeTeste(){
-  let a = document.getElementById("test");
-  a.src = backgroundImages[14];
-  let b =document.getElementById("test2");
-  b.style.backgroundImage = images[0];
-  console.log(images[0])
-  b.style.backgroundSize = "contain"
-}
-jeTeste() */

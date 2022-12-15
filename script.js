@@ -34,14 +34,14 @@ function shuffle(array) {// mélange le tableau contenant chaque couleur en doub
   }
 }
 
-function randomnPlayerStart(nbrPl) {
+function randomnPlayerStart(nbrPl) { // choix aléatoir du premier joueureuse
   player = Math.floor(Math.random() * nbrPl)
   document.getElementById("playerOn").innerHTML = arrGame[player].pseudo + " à toi de jouer" ;
   return player
 }
 
-function displayPseudoInput(n) {
-   const currentDiv = document.getElementById("inputPseudos")
+function displayPseudoInput(n) { // affichage des input pour pseudos
+   const currentDiv = document.getElementById("inputsPseudos")
    currentDiv.replaceChildren();
    for (k = 1; k <= n; k++){
       let pseudo = document.createElement("INPUT");
@@ -49,6 +49,7 @@ function displayPseudoInput(n) {
       pseudo.setAttribute("class", "inputPseudo")
       pseudo.setAttribute("placeholder", "Pseudo");
       pseudo.setAttribute("size", "7")
+      pseudo.setAttribute( "minlength","2")
       currentDiv.appendChild(pseudo);
    }
 } 
@@ -92,7 +93,15 @@ function gameStart() {// initialisation des scores, joueureuses et grille
   randomnPlayerStart(arrGame.length);
   displayScores(arrGame.length)
   let moves = 0;
+  let newInput=document.getElementById("inputs")
+  newInput.replaceChildren()
+  let refreshButton = document.createElement("button");
+  refreshButton.innerHTML = "Rejouer";
+  refreshButton.setAttribute("onclick", "window.location.reload();");
+  refreshButton.setAttribute("class", "btnInput ");
+  newInput.appendChild(refreshButton);
   return moves;
+
 }
 
 function didSomeoneWin(tab) {// vérification du score pour affichage gagnante

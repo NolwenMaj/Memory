@@ -123,9 +123,18 @@ body {
 .btnInput {
     font-size: 15px;
     background-color: #a6dafd ;
-    border-radius: 15%;
+    border-radius: 10%;
     box-shadow: 0 1px #6c9aea;
     font-family: 'Dosis', sans-serif;
+    border: none;
+    color: #333;
+    padding: 5px 5px;
+    margin: 2px 2px;
+    background: #a6dafd;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px #6c9aea; 
 }
 
 .btnInput:hover{

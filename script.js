@@ -92,7 +92,7 @@ function gameStart() {// initialisation des scores, joueureuses et grille
     btn.style.backgroundImage = "";
   });
   getPseudos();
-  shuffle(images);
+  //shuffle(images);
   randomnPlayerStart(arrGame.length);
   displayScores(arrGame.length)
   let moves = 0;
@@ -165,6 +165,23 @@ function drawCards(coordonnees) {// compte des mouvements par joueureuse
           arrGame[player].score += 1
           console.log(arrGame[player].pseudo , arrGame[player].score)
           document.getElementById(arrGame[player].pseudo).innerHTML = arrGame[player].pseudo + " : " +  arrGame[player].score + "pt" ;
+          switch(player){
+            case 0 :
+                premiereCarte.style="transform: translate(-15em, 3em);"
+                deuxiemeCarte.style="transform: translate(-15em, 3em);"
+                break ;
+            case 1 :
+                premiereCarte.style="transform: translate(20em, 3em);"
+                deuxiemeCarte.style="transform: translate(20em, 3em);"
+                break;
+            case 2 :
+                premiereCarte.style="transform: translate(-15em, 5em);"
+                deuxiemeCarte.style="transform: translate(-15em, 5em);"
+                break ;
+            case 3 :
+                premiereCarte.style="transform: translate(20em, 5em);"
+                deuxiemeCarte.style="transform: translate(20em, 5em);"  
+            } 
           didSomeoneWin(arrGame);
         } else {
           setTimeout(() => {nextPlayer(premiereCarte,deuxiemeCarte)}, 400);

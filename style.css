@@ -120,18 +120,27 @@ body {
     top: 6px;
 }
 
-#pseudos{
-background-color: blue;    
+.btnInput {
+    font-size: 15px;
+    background-color: #a6dafd ;
+    border-radius: 15%;
+    box-shadow: 0 1px #6c9aea;
+    font-family: 'Dosis', sans-serif;
+}
+
+.btnInput:hover{
+    background-color: #6c9aea;
+}
+
+#inputPseudos{
 display : flex;
-flex-direction: row ;
 }
 
-#inputPlayers {
+#inputs {
     display: flex;
-    flex-direction: row;
+    gap :5px
 }
 
-#inputNbrJoureur {
-    display : flex ;
-    flex-direction : column ;
+#inputNbrPlayers {
+    display : inline-flex ;
 }

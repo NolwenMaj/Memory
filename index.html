@@ -12,17 +12,17 @@
     <div id="title"> 
         <h1> Memory </h1>
     </div>
-
- <div id="inputPlayers">
-        <div id="inputNbrJoureur">
+    <div id="inputs">
+        <div id="inputNbrPlayers">
             <legend> Nombre de joueur.euse : </legend>
-            <button onclick="displayPseudoInput(2)">2</button>
-            <button onclick="displayPseudoInput(3)">3</button>
-            <button onclick="displayPseudoInput(4)">4</button>
+            <button class=btnInput onclick="displayPseudoInput(2)">2</button>
+            <button class=btnInput onclick="displayPseudoInput(3)">3</button>
+            <button class=btnInput onclick="displayPseudoInput(4)">4</button>
         </div> 
-        <div id="pseudos"></div>
+        <div id="inputPseudos"></div>
+        <button class=btnInput onclick="gameStart()"> Let's Play </button>
     </div>
-    <button id=start, onclick="gameStart()"> Let's Play </button>
+    
     <div id="gagnante"></div>
     <div class="miseEnPage">
     <div class="divScore" id="divScoreGauche">   

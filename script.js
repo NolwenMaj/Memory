@@ -41,13 +41,14 @@ function randomnPlayerStart(nbrPl) {
 }
 
 function displayPseudoInput(n) {
-   const currentDiv = document.getElementById("pseudos")
+   const currentDiv = document.getElementById("inputPseudos")
    currentDiv.replaceChildren();
    for (k = 1; k <= n; k++){
       let pseudo = document.createElement("INPUT");
       pseudo.setAttribute("type", "text");
       pseudo.setAttribute("class", "inputPseudo")
       pseudo.setAttribute("placeholder", "Pseudo");
+      pseudo.setAttribute("size", "7")
       currentDiv.appendChild(pseudo);
    }
 } 
@@ -59,15 +60,15 @@ function displayScores(n) {
     document.getElementById("scoreP2").innerHTML = arrGame[1].pseudo
     player2 = document.getElementById("scoreP2")
     player2.id = arrGame[1].pseudo.toString();
-    if (n == 3){
+    if (n >= 3){
       document.getElementById("scoreP3").innerHTML = arrGame[2].pseudo
       player3 = document.getElementById("scoreP3")
       player3.id = arrGame[2].pseudo.toString();
-    }
-    else if (n==4){
-      document.getElementById("scoreP4").innerHTML = arrGame[3].pseudo
-      player4 = document.getElementById("scoreP4")
-      player4.id = arrGame[3].pseudo.toString();
+      if (n==4){
+        document.getElementById("scoreP4").innerHTML = arrGame[3].pseudo
+        player4 = document.getElementById("scoreP4")
+        player4.id = arrGame[3].pseudo.toString();
+      }
     }
 }
 
@@ -77,6 +78,7 @@ function getPseudos() {
   for (w = 0; w <= (playerPseudo.length-1) ; w++){
     arrGame.push({"pseudo" : playerPseudo[w].value ,'score': 0})
   }
+  console.log(arrGame)
   return arrGame
 }
 
@@ -85,7 +87,7 @@ function gameStart() {// initialisation des scores, joueureuses et grille
   btns.forEach((btn) => {
     btn.style.backgroundColor = "#a6dafd";
   });
-  getPseudos()
+  getPseudos();
   shuffle(colors);
   randomnPlayerStart(arrGame.length);
   displayScores(arrGame.length)

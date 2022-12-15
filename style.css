@@ -93,6 +93,7 @@ body {
 
 .btnJeu{
     max-width: 100%;
+    min-height: 120px;
     height: auto;
     margin: 20px auto 0;
     font-size: 30px;
@@ -104,11 +105,16 @@ body {
     border: none;
     cursor: pointer;
     border-radius: 5%;
-    box-shadow: 0 6px #6c9aea;
-    font-family: 'Dosis', sans-serif;
-       
+    box-shadow: 0 6px #6c9aea; 
+    /* font-family: 'Dosis', sans-serif; */
     
 }
+/*     .MyTests{
+        height: 100px;
+        width: 100px;
+        object-fit: contain;
+    }
+ */
 
 .btnJeu:hover{
     box-shadow: 0 4px #6c9aea;

@@ -93,6 +93,7 @@ body {
 
 .btnJeu{
     max-width: 100%;
+    min-height: 120px;
     height: auto;
     margin: 20px auto 0;
     font-size: 30px;
@@ -104,9 +105,8 @@ body {
     border: none;
     cursor: pointer;
     border-radius: 5%;
-    box-shadow: 0 6px #6c9aea;
-    font-family: 'Dosis', sans-serif;
-       
+    box-shadow: 0 6px #6c9aea; 
+    /* font-family: 'Dosis', sans-serif; */
     
 }
 
@@ -120,18 +120,27 @@ body {
     top: 6px;
 }
 
-#pseudos{
-background-color: blue;    
+.btnInput {
+    font-size: 15px;
+    background-color: #a6dafd ;
+    border-radius: 15%;
+    box-shadow: 0 1px #6c9aea;
+    font-family: 'Dosis', sans-serif;
+}
+
+.btnInput:hover{
+    background-color: #6c9aea;
+}
+
+#inputsPseudos{
 display : flex;
-flex-direction: row ;
 }
 
-#inputPlayers {
+#inputs {
     display: flex;
-    flex-direction: row;
+    gap :5px
 }
 
-#inputNbrJoureur {
-    display : flex ;
-    flex-direction : column ;
+#inputNbrPlayers {
+    display : inline-flex ;
 }

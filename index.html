@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16"  href="favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
     <title>Jeux memory</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap" rel="stylesheet">
@@ -12,17 +15,16 @@
     <div id="title"> 
         <h1> Memory </h1>
     </div>
-
- <div id="inputPlayers">
-        <div id="inputNbrJoureur">
+    <div id="inputs">
+        <div id="inputNbrPlayers">
             <legend> Nombre de joueur.euse : </legend>
-            <button onclick="displayPseudoInput(2)">2</button>
-            <button onclick="displayPseudoInput(3)">3</button>
-            <button onclick="displayPseudoInput(4)">4</button>
+            <button class=btnInput onclick="displayPseudoInput(2)">2</button>
+            <button class=btnInput onclick="displayPseudoInput(3)">3</button>
+            <button class=btnInput onclick="displayPseudoInput(4)">4</button>
         </div> 
-        <div id="pseudos"></div>
+        <div id="inputsPseudos"></div>
+        <button class=btnInput onclick="gameStart()"> C'est parti ! </button>
     </div>
-    <button id=start, onclick="gameStart()"> Let's Play </button>
     <div id="gagnante"></div>
     <div class="miseEnPage">
     <div class="divScore" id="divScoreGauche">   
@@ -30,22 +32,22 @@
         <p class="pseudoScore" id="scoreP3"></p>  
     </div>
         <div id="grilleJeu">
-        <button class="btnJeu" id="0" onclick="drawCards('0')">0</button>
-            <button class="btnJeu" id="1" onclick="drawCards('1')">1 </button>
-            <button class="btnJeu" id="2" onclick="drawCards('2')">2 </button>
-            <button class="btnJeu" id="3" onclick="drawCards('3')">3 </button>
-            <button class="btnJeu" id="4" onclick="drawCards('4')">4 </button>
-            <button class="btnJeu" id="5" onclick="drawCards('5')">5 </button>
-            <button class="btnJeu" id="6" onclick="drawCards('6')">6 </button>
-            <button class="btnJeu" id="7" onclick="drawCards('7')">7 </button>
-            <button class="btnJeu" id="8" onclick="drawCards('8')">8 </button>
-            <button class="btnJeu" id="9" onclick="drawCards('9')">9 </button>
-            <button class="btnJeu" id="10" onclick="drawCards('10')">10</button>
-            <button class="btnJeu" id="11" onclick="drawCards('11')">11</button>
-            <button class="btnJeu" id="12" onclick="drawCards('12')">12 </button>
-            <button class="btnJeu" id="13" onclick="drawCards('13')">13</button>
-            <button class="btnJeu" id="14" onclick="drawCards('14')">14</button>
-            <button class="btnJeu" id="15" onclick="drawCards('15')">15 </button> 
+            <button class="btnJeu" id="0" onclick="drawCards('0')"></button>
+            <button class="btnJeu" id="1" onclick="drawCards('1')"> </button>
+            <button class="btnJeu" id="2" onclick="drawCards('2')"> </button>
+            <button class="btnJeu" id="3" onclick="drawCards('3')"> </button>
+            <button class="btnJeu" id="4" onclick="drawCards('4')"> </button>
+            <button class="btnJeu" id="5" onclick="drawCards('5')"> </button>
+            <button class="btnJeu" id="6" onclick="drawCards('6')"> </button>
+            <button class="btnJeu" id="7" onclick="drawCards('7')"> </button>
+            <button class="btnJeu" id="8" onclick="drawCards('8')"> </button>
+            <button class="btnJeu" id="9" onclick="drawCards('9')"> </button>
+            <button class="btnJeu" id="10" onclick="drawCards('10')"></button>
+            <button class="btnJeu" id="11" onclick="drawCards('11')"></button>
+            <button class="btnJeu" id="12" onclick="drawCards('12')"> </button>
+            <button class="btnJeu" id="13" onclick="drawCards('13')"></button>
+            <button class="btnJeu" id="14" onclick="drawCards('14')"></button>
+            <button class="btnJeu" id="15" onclick="drawCards('15')"> </button> 
         </div>
         <div class="divScore" id =divScoreDroite>   
             <p class="pseudoScore" id="scoreP2"></p> 

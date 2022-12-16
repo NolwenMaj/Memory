@@ -79,7 +79,7 @@ function gameStart() {// initialisation des scores, joueureuses et grille
       break ;
       }
     } 
-      shuffle(images);
+      //shuffle(images);
       displayScores(arrGame.length)
       randomnPlayerStart(arrGame.length);
       let moves = 0;
@@ -150,18 +150,31 @@ function drawCards(coordonnees) {// compte des mouvements par joueureuse
         moves = 0;
         if (premiereCarte.style.backgroundImage == deuxiemeCarte.style.backgroundImage) {
           arrGame[player].score += 1
+          premiereCarte.style.position="absolute"
+          deuxiemeCarte.style.position="absolute"
           console.log(arrGame[player].pseudo , arrGame[player].score)
           document.getElementById(arrGame[player].pseudo).innerHTML = arrGame[player].pseudo + " : " +  arrGame[player].score + "pt" ;
           switch(player){
             case 0 :
-                premiereCarte.style="transform: translate(-15em, 3em);"
+                
+                //premiereCarte.style="transform: translate(-15em, 3em);"
+                premiereCarte.style.top="300px"
+                premiereCarte.style.left="320px"
+                
                 premiereCarte.style.backgroundImage = deuxiemeCarte.style.backgroundImage
+                premiereCarte.style.border="solid #a6dafd"
                 premiereCarte.style.backgroundSize = "cover"
                 premiereCarte.style.backgroundRepeat = "no-repeat"
-                deuxiemeCarte.style="transform: translate(-15em, 3em);"
+              
+                //deuxiemeCarte.style="transform: translate(-18.8em, 3.2em);"
+                deuxiemeCarte.style.top="320px"
+                deuxiemeCarte.style.left="340px"
+                
                 deuxiemeCarte.style.backgroundImage = premiereCarte.style.backgroundImage
+                deuxiemeCarte.style.border="solid #a6dafd"
                 deuxiemeCarte.style.backgroundSize = "cover"
                 deuxiemeCarte.style.backgroundRepeat = "no-repeat"
+                 
                 break ;
             case 1 :
                 premiereCarte.style="transform: translate(20em, 3em);"

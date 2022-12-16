@@ -23,8 +23,7 @@ body {
 }
 
 .miseEnPage div{
-    width: 300px;
-    padding: 10px;
+    
     text-align: center;
     color: #000000;
     max-width: 100%;
@@ -44,8 +43,10 @@ body {
     max-width: 100%;
     height: auto;
     border: none;
+    /* position: absolute; */
      
 }
+
 
 #gagnante{
     z-index: 2;
@@ -67,6 +68,8 @@ body {
     max-width: 100%;
     height: auto;
     font-family: 'Dosis', sans-serif;  
+    width: 200px;
+    
 }
 
 .score{
@@ -106,7 +109,7 @@ body {
     cursor: pointer;
     border-radius: 5%;
     box-shadow: 0 6px #6c9aea; 
-    /* font-family: 'Dosis', sans-serif; */
+    
     
 }
 

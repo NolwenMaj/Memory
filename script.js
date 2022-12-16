@@ -38,7 +38,7 @@ function displayPseudoInput(n) { // affichage des input pour pseudos
    }
 } 
 
-function displayScores(n) {
+function displayScores(n) { // affichages des zones de scores 
     document.getElementById("scoreP1").innerHTML = arrGame[0].pseudo
     player1 = document.getElementById("scoreP1")
     player1.id = arrGame[0].pseudo.toString();
@@ -57,7 +57,7 @@ function displayScores(n) {
     }
 }
 
-function getPseudos() {
+function getPseudos() { // création tableau gestion des scores
   let playerPseudo = document.querySelectorAll(".inputPseudo")
   arrGame.length = 0
   for (w = 0; w <= (playerPseudo.length-1) ; w++){
@@ -115,7 +115,7 @@ function didSomeoneWin(tab) {// vérification du score pour affichage gagnante
   }
 }
 
-function showWinner (nbrWinner) {
+function showWinner (nbrWinner) { // affichage de la gagnante
   if ((nbrWinner)==1){
     document.getElementById("gagnante").innerHTML = result[0] + " a gagné !";}
   else if ((result.length)>1){
@@ -126,7 +126,7 @@ function showWinner (nbrWinner) {
 }
 
 
-function nextPlayer (first,second){
+function nextPlayer (first,second){ // gestion du tour des joueureuses
   first.style.backgroundImage = "";
   second.style.backgroundImage = "";
   player +=1

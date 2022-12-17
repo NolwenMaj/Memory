@@ -25,37 +25,39 @@
         <div id="inputsPseudos"></div>
         <button class=btnInput onclick="gameStart()"> C'est parti ! </button>
     </div>
+
     <div id="gagnante"></div>
     <div class="miseEnPage">
     <div class="divScore" id="divScoreGauche">   
         <p class="pseudoScore" id="scoreP1"></p> 
+        <div class="divPseudoScore" id="cardsWonP1"></div>
         <p class="pseudoScore" id="scoreP3"></p>  
+        <div class="divPseudoScore" id="cardsWonP3"></div>
     </div>
         <div id="grilleJeu">
-           <div id="btn1"> <button class="btnJeu" id="0" onclick="drawCards('0')"></button></div>
-           <div id="btn2"> <button class="btnJeu" id="1" onclick="drawCards('1')"> </button></div>
-           <div id="btn3"><button class="btnJeu" id="2" onclick="drawCards('2')"> </button></div>
-           <div id="btn4"> <button class="btnJeu" id="3" onclick="drawCards('3')"> </button></div>
-           <div id="btn5"><button class="btnJeu" id="4" onclick="drawCards('4')"> </button></div>
-           <div id="btn6"> <button class="btnJeu" id="5" onclick="drawCards('5')"> </button></div>
-           <div id="btn7"> <button class="btnJeu" id="6" onclick="drawCards('6')"> </button></div>
-           <div id="btn8"> <button class="btnJeu" id="7" onclick="drawCards('7')"> </button></div>
-           <div id="btn9"><button class="btnJeu" id="8" onclick="drawCards('8')"> </button></div>
-           <div id="btn10"> <button class="btnJeu" id="9" onclick="drawCards('9')"> </button></div>
-           <div id="btn11"><button class="btnJeu" id="10" onclick="drawCards('10')"></button></div>
-           <div id="btn12"> <button class="btnJeu" id="11" onclick="drawCards('11')"></button></div>
-           <div id="btn13"><button class="btnJeu" id="12" onclick="drawCards('12')"> </button></div>
-           <div id="btn14"> <button class="btnJeu" id="13" onclick="drawCards('13')"></button></div>
-           <div id="btn15"> <button class="btnJeu" id="14" onclick="drawCards('14')"></button></div>
-           <div id="btn16"> <button class="btnJeu" id="15" onclick="drawCards('15')"> </button></div> 
+           <div class="divBtnJeu" id="btn1"> <button class="btnJeu" id="0" onclick="drawCards('0')"></button></div>
+           <div class="divBtnJeu" id="btn2"> <button class="btnJeu" id="1" onclick="drawCards('1')"> </button></div>
+           <div class="divBtnJeu" id="btn3"><button class="btnJeu" id="2" onclick="drawCards('2')"> </button></div>
+           <div class="divBtnJeu" id="btn4"> <button class="btnJeu" id="3" onclick="drawCards('3')"> </button></div>
+           <div class="divBtnJeu" id="btn5"><button class="btnJeu" id="4" onclick="drawCards('4')"> </button></div>
+           <div class="divBtnJeu" id="btn6"> <button class="btnJeu" id="5" onclick="drawCards('5')"> </button></div>
+           <div class="divBtnJeu" id="btn7"> <button class="btnJeu" id="6" onclick="drawCards('6')"> </button></div>
+           <div class="divBtnJeu" id="btn8"> <button class="btnJeu" id="7" onclick="drawCards('7')"> </button></div>
+           <div class="divBtnJeu" id="btn9"><button class="btnJeu" id="8" onclick="drawCards('8')"> </button></div>
+           <div class="divBtnJeu" id="btn10"> <button class="btnJeu" id="9" onclick="drawCards('9')"> </button></div>
+           <div class="divBtnJeu" id="btn11"><button class="btnJeu" id="10" onclick="drawCards('10')"></button></div>
+           <div class="divBtnJeu" id="btn12"> <button class="btnJeu" id="11" onclick="drawCards('11')"></button></div>
+           <div class="divBtnJeu" id="btn13"><button class="btnJeu" id="12" onclick="drawCards('12')"> </button></div>
+           <div class="divBtnJeu" id="btn14"> <button class="btnJeu" id="13" onclick="drawCards('13')"></button></div>
+           <div class="divBtnJeu" id="btn15"> <button class="btnJeu" id="14" onclick="drawCards('14')"></button></div>
+           <div class="divBtnJeu" id="btn16"> <button class="btnJeu" id="15" onclick="drawCards('15')"> </button></div> 
         </div>
         <div class="divScore" id =divScoreDroite>   
             <p class="pseudoScore" id="scoreP2"></p> 
+            <div class="divPseudoScore" id="cardsWonP2"></div>
             <p class="pseudoScore" id="scoreP4"></p> 
+            <div class="divPseudoScore" id="cardsWonP4"></div>
         </div>
-    </div>
-    <div class="joueur">
-        <p id="playerOn"></p>
     </div>
 <script src="script.js"></script> 
 <script src =" https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js "> </script>

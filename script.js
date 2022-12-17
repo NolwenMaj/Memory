@@ -77,20 +77,16 @@ function gameStart() {// initialisation des scores, joueureuses et grille
       alert("Il manque au moins un pseudo!")
       window.location.reload();
       break ;
-      }
-    } 
-      //shuffle(images);
+    }
+  } 
+      shuffle(images);
       displayScores(arrGame.length)
+      let newInput=document.getElementById("inputs");
+      newInput.replaceChildren();
+      let joueureuseOn = document.createElement('text');
+      joueureuseOn.id = "playerOn";
+      newInput.appendChild(joueureuseOn);
       randomnPlayerStart(arrGame.length);
-      let moves = 0;
-      let newInput=document.getElementById("inputs")
-      newInput.replaceChildren()
-      let refreshButton = document.createElement("button");
-      refreshButton.innerHTML = "Rejouer";
-      refreshButton.setAttribute("onclick", "window.location.reload();");
-      refreshButton.setAttribute("class", "btnInput ");
-      newInput.appendChild(refreshButton);
-      return moves; 
 }
 
 function didSomeoneWin(tab) {// vérification du score pour affichage gagnante
@@ -100,7 +96,6 @@ function didSomeoneWin(tab) {// vérification du score pour affichage gagnante
     total += parseInt(tab[i].score)
   }
   if (total == 8) {
-    document.getElementById("playerOn").innerHTML = ""
     confetti({spread :180,particleCount : 200})
     const ids = tab.map(object => {
       return object.score;
@@ -115,11 +110,18 @@ function didSomeoneWin(tab) {// vérification du score pour affichage gagnante
   }
 }
 
-function showWinner (nbrWinner) { // affichage de la gagnante
+function showWinner (nbrWinner) { // affichage de la gagnantelet refreshButton = document.createElement("button");
+  let newInput=document.getElementById("inputs")
+  let refreshButton = document.createElement("button")
+  newInput.replaceChildren()
+  refreshButton.innerHTML = "Rejouer";
+  refreshButton.setAttribute("onclick", "window.location.reload();");
+  refreshButton.setAttribute("class", "btnInput ");
+  newInput.appendChild(refreshButton);
   if ((nbrWinner)==1){
-    document.getElementById("gagnante").innerHTML = result[0] + " a gagné !";}
+    document.getElementById("gagnante").innerHTML = result[0] + "<br>" + "a gagné !";}
   else if ((result.length)>1){
-    document.getElementById("gagnante").innerHTML = "Egalité ! " 
+    document.getElementById("gagnante").innerHTML = "Egalité ! "+"<br>"
     for (let j = 0; j<result.length; j++){
       document.getElementById("gagnante").innerHTML += result[j] + "    "}
   }
@@ -137,6 +139,29 @@ function nextPlayer (first,second){ // gestion du tour des joueureuses
   return player
 }
 
+function moveCards(joueur,carte1,carte2){
+  let divCards ;
+  switch(joueur){
+    case 0 :
+      divCards = document.getElementById("cardsWonP1")
+    break ;
+    case 1 :
+      divCards = document.getElementById("cardsWonP2")
+    break ;
+    case 2 :
+      divCards = document.getElementById("cardsWonP3")
+    break ;
+    case 3 :
+      divCards = document.getElementById("cardsWonP4")
+    break ;
+  }
+  divCards.appendChild(carte1)
+  divCards.appendChild(carte2)
+  carte2.style.display="none"
+  carte1.style.boxShadow = "none"
+  carte1.style.cursor ="default"
+}
+
 function drawCards(coordonnees) {// compte des mouvements par joueureuse
   moves += 1;
   console.log('moves :' , moves)
@@ -150,62 +175,8 @@ function drawCards(coordonnees) {// compte des mouvements par joueureuse
         moves = 0;
         if (premiereCarte.style.backgroundImage == deuxiemeCarte.style.backgroundImage) {
           arrGame[player].score += 1
-          premiereCarte.style.position="absolute"
-          deuxiemeCarte.style.position="absolute"
-          console.log(arrGame[player].pseudo , arrGame[player].score)
           document.getElementById(arrGame[player].pseudo).innerHTML = arrGame[player].pseudo + " : " +  arrGame[player].score + "pt" ;
-          switch(player){
-            case 0 :
-                
-                //premiereCarte.style="transform: translate(-15em, 3em);"
-                premiereCarte.style.top="300px"
-                premiereCarte.style.left="320px"
-                
-                premiereCarte.style.backgroundImage = deuxiemeCarte.style.backgroundImage
-                premiereCarte.style.border="solid #a6dafd"
-                premiereCarte.style.backgroundSize = "cover"
-                premiereCarte.style.backgroundRepeat = "no-repeat"
-              
-                //deuxiemeCarte.style="transform: translate(-18.8em, 3.2em);"
-                deuxiemeCarte.style.top="320px"
-                deuxiemeCarte.style.left="340px"
-                
-                deuxiemeCarte.style.backgroundImage = premiereCarte.style.backgroundImage
-                deuxiemeCarte.style.border="solid #a6dafd"
-                deuxiemeCarte.style.backgroundSize = "cover"
-                deuxiemeCarte.style.backgroundRepeat = "no-repeat"
-                 
-                break ;
-            case 1 :
-                premiereCarte.style="transform: translate(20em, 3em);"
-                premiereCarte.style.backgroundImage = deuxiemeCarte.style.backgroundImage
-                premiereCarte.style.backgroundSize = "cover"
-                premiereCarte.style.backgroundRepeat = "no-repeat"
-                deuxiemeCarte.style="transform: translate(20em, 3em);"
-                deuxiemeCarte.style.backgroundImage = premiereCarte.style.backgroundImage
-                deuxiemeCarte.style.backgroundSize = "cover"
-                deuxiemeCarte.style.backgroundRepeat = "no-repeat"
-                break;
-            case 2 :
-                premiereCarte.style="transform: translate(-15em, 3em);"
-                premiereCarte.style.backgroundImage = deuxiemeCarte.style.backgroundImage
-                premiereCarte.style.backgroundSize = "cover"
-                premiereCarte.style.backgroundRepeat = "no-repeat"
-                deuxiemeCarte.style="transform: translate(-15em, 3em);"
-                deuxiemeCarte.style.backgroundImage = premiereCarte.style.backgroundImage
-                deuxiemeCarte.style.backgroundSize = "cover"
-                deuxiemeCarte.style.backgroundRepeat = "no-repeat"
-                break ;
-            case 3 :
-                premiereCarte.style="transform: translate(20em, 3em);"
-                premiereCarte.style.backgroundImage = deuxiemeCarte.style.backgroundImage
-                premiereCarte.style.backgroundSize = "cover"
-                premiereCarte.style.backgroundRepeat = "no-repeat"
-                deuxiemeCarte.style="transform: translate(20em, 3em);"
-                deuxiemeCarte.style.backgroundImage = premiereCarte.style.backgroundImage
-                deuxiemeCarte.style.backgroundSize = "cover"
-                deuxiemeCarte.style.backgroundRepeat = "no-repeat"  
-            } 
+          moveCards(player,premiereCarte,deuxiemeCarte)
           didSomeoneWin(arrGame);
         } else {
           setTimeout(() => {nextPlayer(premiereCarte,deuxiemeCarte)}, 400);
@@ -223,6 +194,8 @@ function displayCard(coord) { // affichage de la couleur de la case et cliquée
   imgToShow.style.backgroundImage = images[coord];
   imgToShow.style.backgroundSize = "cover"
   imgToShow.style.backgroundRepeat = "no-repeat"
+  imgToShow.style.border="solid #a6dafd"
+  //imgToShow.style.borderWidth="2.5px"
   return imgToShow;
 }
 
